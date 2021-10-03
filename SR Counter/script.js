@@ -11,10 +11,8 @@ const inputValues = {
 }
 
 const onChangeHandler = (event) => {
-    // при каждом изм значения в инпуте, меняем ключи в объекта inputValues
     inputValues[event.target.name] = +event.target.value
     
-    // достаем деструктуризацией знчения ключей объекта
     const {geometry, labels, classes, operator} = inputValues
 
     const result = (geometry * 100 / 12000) 
@@ -26,9 +24,7 @@ const onChangeHandler = (event) => {
 }
 
 const keyboardEventHandler = (event) => {
-    // деструктуризация объектов/массивов как работает почитать
-    const {keyCode, target: {value, max}} = event;  
-    // const isValidValue = !value || (+value <= +max);
+    const {keyCode, target: {value}} = event;  
 
     const isBeginWithZero = (!value && keyCode === 48) 
     || (!value && keyCode === 96)
